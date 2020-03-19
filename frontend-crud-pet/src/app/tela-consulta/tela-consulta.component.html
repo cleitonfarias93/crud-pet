@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <h2 class="col-sm-7">Consulta de Pets</h2>
+  <div class="btnNav col-sm-5">
+    <button class="btn btn-success" routerLink='/cadastro'>Novo Cadastro</button>
+    <button style="box-shadow: none" class=" btnShadow btn btn-info active"
+    (click)="atualizarPet()">Atualizar</button>
+  </div>
+</nav>
+
+
+<table class="table border rounded">
+  <thead>
+    <tr>
+      <th scope="col">Tipo</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Data Nascimento</th>
+      <th scope="col">Raça</th>
+      <th scope="col">Sexo</th>
+      <th scope="col">Cor</th>
+      <th scope="col">Nome do Pai</th>
+      <th scope="col">Nome da Mãe</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listaPet">
+      <td>{{item.tipo}}</td>
+      <td>{{item.nome}}</td>
+      <td>{{item.datanasc | date: 'dd/MM/yyyy':'UTC'}}</td>
+      <td>{{item.raca}}</td>
+      <td>{{item.sexo}}</td>
+      <td>{{item.cor}}</td>
+      <td>{{item.nomepai}}</td>
+      <td>{{item.nomemae}}</td>
+      <td class="tdButton">
+        <button style="box-shadow: none" class="btnShadow btn btn-danger active"
+        (click)="deletarPet(item.id)">Excluir</button>
+        <button class="btn btn-primary" (click)="editarPet(item.id)">Editar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

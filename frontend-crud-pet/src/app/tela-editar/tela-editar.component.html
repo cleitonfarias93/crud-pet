@@ -1,0 +1,78 @@
+<form #frm="ngForm" class="text-center">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <h2>Editar Pet</h2>
+  </nav>
+
+
+  <div class="frmEditar form-group text-left border border-secondary"
+   *ngFor="let itemPet of listaPet">
+      <div class="form-group row col-sm-12">
+
+        <label>Tipo</label>
+        <div class="input-group">
+          <select class="custom-select" name="tipo" [(ngModel)]="itemPet.tipo" required>
+            <option *ngFor="let item of tipoPet" >{{item}}</option>
+          </select>
+        </div>
+
+        <label for="sexo">Sexo</label>
+        <div class="input-group">
+          <select class="custom-select" name="sexo" [(ngModel)]="itemPet.sexo" required>
+            <option *ngFor="let item of sexoPet" >{{item}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="form-group col-sm-6">
+          <label for="nome">Nome</label>
+          <input class="form-control" type="text" name="nome"
+                [(ngModel)]="itemPet.nome" required>
+        </div>
+
+        <div class="form-group col-sm-6">
+          <label for="nome">Data Nascimento</label>
+          <input class="form-control" type="text" name="datanasc"
+                [ngModel]="itemPet.datanasc | date: 'dd/MM/yyyy':'UTC'"
+                disabled>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="form-group col-sm-6">
+          <label for="raca">Raça</label>
+          <input class="form-control" type="text" name="raca" placeholder="Raça"
+                [(ngModel)]="itemPet.raca" required>
+        </div>
+
+        <div class="form-group col-sm-6">
+          <label for="Cor">Cor</label>
+          <input class="form-control" type="text" name="cor" placeholder="Cor"
+                [(ngModel)]="itemPet.cor" required>
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <div class="form-group col-sm-6">
+          <label for="nomePai">Nome do Pai</label>
+          <input class="form-control" type="text" name="nomePai" placeholder="Nome do Pai"
+                [(ngModel)]="itemPet.nomepai">
+        </div>
+
+        <div class="form-group col-sm-6">
+          <label for="nomeMae">Nome da Mãe</label>
+          <input class="form-control" type="text" name="nomeMae" placeholder="Nome da Mãe"
+                [(ngModel)]="itemPet.nomemae">
+        </div>
+      </div>
+
+      <div class="btnForm">
+
+        <button type="button" class="btn btn-success" (click)="editarPet()"
+        [disabled]="!frm.valid">Salvar Alterações</button>
+        <button type="button" class="btn btn-danger" routerLink="/">Cancelar</button>
+
+      </div>
+  </div>
+</form>

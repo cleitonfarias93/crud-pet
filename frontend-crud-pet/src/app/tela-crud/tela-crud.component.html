@@ -1,0 +1,83 @@
+<form #frm="ngForm" class="text-center">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark border border-secondary">
+    <h2>Cadastro de Pet</h2>
+  </nav>
+    <div class="frmPet form-group text-left border border-secondary">
+
+        <div class="form-group row col-sm-12">
+
+          <label>Tipo</label>
+          <div class="input-group">
+            <select class="custom-select" name="tipo" [(ngModel)]="pet.tipo" required>
+              <option *ngFor="let item of tipoPet" >{{item}}</option>
+            </select>
+          </div>
+
+          <label for="sexo">Sexo</label>
+          <div class="input-group">
+            <select class="custom-select" name="sexo" [(ngModel)]="pet.sexo" required>
+              <option *ngFor="let item of sexoPet" >{{item}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="form-group col-sm-6">
+            <label for="nome">Nome</label>
+            <input class="form-control" type="text" name="nome" placeholder="Nome"
+                  [(ngModel)]="pet.nome" required>
+          </div>
+
+
+          <div class="form-group col-sm-6">
+            <label>Data de Nascimento</label>
+            <p-calendar class="input-group" [(ngModel)]="pet.dataNasc" name="datanasc"
+            [monthNavigator]="true" [yearNavigator]="true" yearRange="1950:2020"
+            [showIcon]="true" dateFormat="dd/mm/yy" [locale]="pt" required></p-calendar>
+          </div>
+
+        </div>
+
+        <div class="form-group row">
+          <div class="form-group col-sm-6">
+            <label for="raca">Raça</label>
+            <input class="form-control" type="text" name="raca" placeholder="Raça"
+                  [(ngModel)]="pet.raca" required>
+          </div>
+
+          <div class="form-group col-sm-6">
+            <label for="Cor">Cor</label>
+            <input class="form-control" type="text" name="cor" placeholder="Cor"
+                  [(ngModel)]="pet.cor" required>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <div class="form-group col-sm-6">
+            <label for="nomePai">Nome do Pai</label>
+            <input class="form-control" type="text" name="nomePai" placeholder="Nome do Pai"
+                  [(ngModel)]="pet.nomePai">
+          </div>
+
+          <div class="form-group col-sm-6">
+            <label for="nomeMae">Nome da Mãe</label>
+            <input class="form-control" type="text" name="nomeMae" placeholder="Nome da Mãe"
+                  [(ngModel)]="pet.nomeMae">
+          </div>
+        </div>
+
+        <div class="btnForm">
+          <button type="button" class="btn btn-success"
+           (click)="enviarPet()" [disabled]="!frm.valid">Cadastrar</button>
+
+          <button  type="button" class="btn btn-warning"
+           (click)="limparForm()">Limpar</button>
+
+          <button type="button" class="btn btn-danger"
+          routerLink="/">Cancelar</button>
+        </div>
+
+    </div>
+</form>
+

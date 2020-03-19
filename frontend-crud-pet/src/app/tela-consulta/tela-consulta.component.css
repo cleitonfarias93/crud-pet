@@ -1,0 +1,28 @@
+h2 {
+  color: whitesmoke;
+}
+
+th, td{
+  text-align: center;
+}
+
+.tdButton {
+  text-align: center;
+}
+
+.btnNav{
+
+  text-align: right;
+}
+
+.table button {
+  margin-right: 10px;
+  text-align: right;
+}
+
+.btnNav button {
+    margin-left: 10px;
+}
+
+
+

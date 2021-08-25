@@ -1,3 +1,5 @@
+Este projeto foi um desafio técnico proposto pela em empresa onde trabalho atualmente, o código tem muito a melhorar, porem foi a primeira aplicação que eu implementei, na época houve vários desafios, entender como funciona a comunicação entre o back e o front, trabalhar com banco de dados, foi de extrema importância para minha caminhada como dev.
+
 # crud-pet
 Cadastro de Pets desenvolvido com Angular 9 e NodeJS
 
